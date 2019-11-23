@@ -31,16 +31,12 @@
  
  		# (2.3) si no hi ha resultat (0 files o bé hi ha algun error a la sintaxi)
  		#     posem un missatge d'error i acabem (die) l'execució de la pàgina web
- 		if (!$resultat) {
-     			$message  = 'Consulta invàlida: ' . mysqli_error() . "\n";
-     			$message .= 'Consulta realitzada: ' . $consulta;
-     			die($message);
- 		}
+ 		
  	?>
  	
 
  	<!-- (3.1) aquí va la taula HTML que omplirem amb dades de la BBDD -->
- 	<table>
+ 	<div id="">
  	<!-- la capçalera de la taula l'hem de fer nosaltres -->
  	<thead><td colspan="4" align="center" bgcolor="cyan">Llistat de ciutats</td></thead>
  	<?php
@@ -52,12 +48,7 @@
  		{	
  			$imagen=strtolower($registre['code2']);
  			# els \t (tabulador) i els \n (salt de línia) son perquè el codi font quedi llegible
-  			if ($countFilas==0) {
-  				echo "<tr>";
-  			}elseif ($countFilas%12==0) {
-  				echo "</tr>";
-  				echo "<tr>";
-  			}
+  			
  			# (3.3) obrim fila de la taula HTML amb <tr>
  			
  			
@@ -87,9 +78,10 @@
  		echo "<input type=submit name='pais'></input>";
  		echo "</form>";
  	?>
+ </div>
   	<!-- (3.6) tanquem la taula -->
 
- 	</table>
+ 	
  	
  </body>
 </html>

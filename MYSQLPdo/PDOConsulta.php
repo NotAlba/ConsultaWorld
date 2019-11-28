@@ -27,17 +27,17 @@
 <body>
 	<h1>Paisos per continent</h1>
 	<label>Selecciona un continent</label>
-	<form method="POST" action="action_PDOConsulta.php">
-		<select>
+	<form method='POST' action='action_PDOConsulta.php'>
+		<select name="continent">
 			<?php  
 			while ($registre){
-				echo "<option value='".$registre['continent']."' name='continent'>".$registre['continent']." </option>";
+				echo "<option value='".$registre['continent']."'>".$registre['continent']." </option>";
 				echo $registre['continent'];
 				$registre = $consulta->fetch();
 			}
 			?>							
 		</select>
-		<input type='submit' value="Buscar">
+		<input type='submit' name='submit'>
 	</form>
 
 </body>
